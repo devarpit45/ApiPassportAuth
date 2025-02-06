@@ -2,7 +2,17 @@ const express = require('express')
 const port = 8005;
 const app = express();
 
-const db = require('./config/mongoose')
+// const db = require('./config/mongoose')
+const mongoose = require('mongoose')
+
+const db = mongoose.connect('mongodb+srv://arpitshekhda45:gPbdGSGTvYJHpNev@cluster0.nwtwk.mongodb.net/apiData')
+if(db){
+    console.log('db is connected')
+}
+else{
+    console.log('db not connected')
+}
+
 app.use(express.urlencoded())
 
 const passport = require('passport')
